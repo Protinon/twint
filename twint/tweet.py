@@ -108,7 +108,7 @@ def Tweet(tw, config):
     except KeyError:
         t.photos = []
     try:
-        t.video = 1 if len([e for e in tw['extended_entities']['media'] if e['type'] == 'video']) else 0
+        t.video = 1 if len([e for e in tw['extended_entities']['media'] if e['type'] == 'video' or e['type'] == 'animated_gif']) else 0
     except KeyError:
         t.video = 0
     try:
