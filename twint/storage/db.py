@@ -284,7 +284,7 @@ def tweets(conn, Tweet, config):
 
         if Tweet.retweet:
             query = 'INSERT INTO retweets VALUES(?,?,?,?,?)'
-            _d = datetime.timestamp(datetime.strptime(Tweet.retweet_date, "%Y-%m-%d %H:%M:%S"))
+            _d = datetime.timestamp(datetime.strptime(Tweet.retweet_date, "%Y-%m-%d %H:%M:%S %Z"))
             cursor.execute(query, (int(Tweet.user_rt_id), Tweet.user_rt, Tweet.id, int(Tweet.retweet_id), _d))
 
         if Tweet.reply_to:
